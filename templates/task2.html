@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Flex Boxes Example</title>
+    <style>
+        .container {
+            display: flex;
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 80%;
+            margin: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .image-box {
+            flex: 1;
+            background: url('bus.png') no-repeat center center;
+            background-size: cover;
+            min-height: 500px; /* Set a minimum height */
+        }
+        .text-box {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f5f7fa;
+        }
+        .text-box h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-box"></div>
+        <div class="text-box">
+            <h2>BUS.FOR.U</h2>
+            <p>ERICA CALL 911. I SAID YOU TO EAT YOUR DAMN PIE.</p>
+        </div>
+    </div>
+</body>
+</html>
