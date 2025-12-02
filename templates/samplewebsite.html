@@ -3,77 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sample </title>
+    <title>BUS.FOR.U - Home</title>
+
     <style>
-        
-        html{
-            scroll-behavior:smooth;
+        nav {
+            text-align: right;
+            margin: 10px;
         }
-        nav{
-           position:fixed;
-           top:0;
-           left:0;
-           width:100%;
-           background-color:lightblue;
-           text-align:right;
+        nav a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin-left: 8px;
         }
-        div{
-        padding:40;
-        background-color:black;
-        height:50vh;
+        nav a:hover {
+            background-color: #0056b3;
         }
-        a{
-            text-decoration:none;
+
+        header {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f0f8ff;
         }
-        button{
-            background-color:lightblue;
+
+        h1 {
+            font-size: 40px;
+            color: #222;
         }
-       
+
+        section {
+            width: 85%;
+            margin: auto;
+            padding: 25px;
+            background: #fff;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #eee;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background: #e9f2ff;
+        }
     </style>
 </head>
-<body>     
+
+<body>
+
+    <!-- Navigation -->
     <nav>
-        <button>
-        <a href="#hm" > Home </a> |
-        </button>
-        <button>
-        <a href="#ab" > About </a> |
-        </button>
-        <button>
-        <a href="#con" > Contact </a> |
-        </button>
-        <button>
-        <a href="#dt" > Details </a>
-        </button>
-    </nav> 
+        <a href="samplewebsite.html">Home</a>
+        <a href="form.html">Book</a>
+        <a href="details.html">Details</a>
+    </nav>
 
-   <div style="background-color:#FDECEC; height:80vh;" id="hm">
-    <h1>Welcome to BUS.FOR.U</h1>
-    <p>This is the home section of the website.</p>
-    <p>Find buses, compare prices, and book easily.</p>
-    <p>Safe, reliable, and comfortable travel.</p>
-</div>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to BUS.FOR.U</h1>
+        <p>Your trusted online platform for safe, comfortable, and easy bus booking.</p>
+    </header>
 
-<div style="background-color:#FFF5E6; height:100vh;" id="ab">
-    <h2>About Us</h2>
-    <p>We provide fast, easy, and secure bus ticket booking services.</p>
-    <p>Click below to see the image</p>
-    <img src="personal-photo.jpg" alt="About Image" width="300" height="300">
-</div>
+    <!-- Section 1 - Introduction -->
+    <section>
+        <h2>What is BUS.FOR.U?</h2>
+        <p>
+            BUS.FOR.U is an easy-to-use online bus ticket booking platform designed
+            to make your travel planning stress-free. Instead of standing in long
+            lines or dealing with last-minute hassles, you can check bus schedules,
+            compare prices, and book tickets instantly from your phone or computer.
+            We connect passengers with verified and reliable bus operators,
+            ensuring that every trip you take is safe, comfortable, and convenient.
+        </p>
+        
+    </section>
 
-<div style="background-color:#E8F6FF; height:100vh;" id="con">
-    <h2>Contact Us</h2>
-    <b>Phone:</b> +123-456-7890 <br>
-    <b>Email:</b> sample123@gmail.com <br>
-    <b>Location:</b> Baneshwor, Kathmandu <br>
-    <p>We are always ready to help you with your travel needs.</p>
-</div>
+    <!-- Section 2 - Why choose us -->
+    <section>
+        <h2>Why Choose Us?</h2>
+        <p>
+            At BUS.FOR.U, our goal is to make your journey easy from start to finish. 
+            We offer:
+        </p>
+        <ul>
+            <li><b>Easy Booking:</b> Select your route, pick your seat, and confirm your ticket in minutes.</li>
+            <li><b>Transparent Pricing:</b> No hidden fees — you only pay what you see.</li>
+            <li><b>Real-time Updates:</b> View bus timings, seat availability, and travel routes instantly.</li>
+            <li><b>Trusted Operators:</b> All buses listed on our platform are verified for safety and quality.</li>
+            <li><b>Comfortable Travel:</b> Choose from AC, non-AC, sleeper, seater, and luxury buses.</li>
+        </ul>
+    </section>
 
-<div style="background-color:#FFF8DC; height:100vh;" id="dt">
-    <h2>Details</h2>
-    <p>This section contains additional information about our services.</p>
-</div>
+    <!-- Section 3 - How it Works -->
+    <section>
+        <h2>How It Works?</h2>
+        <p>Booking a bus ticket with BUS.FOR.U is simple and user-friendly:</p>
+        <ol>
+            <li><b>Search Your Route:</b> Enter your starting point and destination.</li>
+            <li><b>Compare Options:</b> Check timing, fare, bus type, and available seats.</li>
+            <li><b>Choose Your Seat:</b> Select a seat that suits your preference.</li>
+            <li><b>Secure Payment:</b> Pay easily using online payment options.</li>
+            <li><b>Get Instant Ticket:</b> Your ticket is instantly generated and sent to your email.</li>
+        </ol>
+        <p>
+            Whether you travel daily for work, visit relatives on weekends, or take long-distance trips,
+            BUS.FOR.U gives you a smooth and reliable booking experience.
+        </p>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 BUS.FOR.U — Making Travel Simple & Comfortable</p>
+    </footer>
 
 </body>
 </html>
