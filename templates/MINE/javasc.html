@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+
+        .calc-container {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            margin: 60px auto;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            font-size: 15px;
+            font-weight: bold;
+            display: inline-block;
+            width: 140px;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 6px;
+            border: 1px solid gray;
+        }
+
+        /* Buttons in 2x2 grid */
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            font-size: 15px;
+            background-color: orange;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: darkorange;
+        }
+    </style>
+
+    <script>
+        function add() {
+            let x = parseFloat(document.getElementById("t1").value);
+            let y = parseFloat(document.getElementById("t2").value);
+            document.getElementById("t3").value = x + y;
+        }
+
+        function multiply() {
+            let x = parseFloat(document.getElementById("t1").value);
+            let y = parseFloat(document.getElementById("t2").value);
+            document.getElementById("t3").value = x * y;
+        }
+
+        function divide() {
+            let x = parseFloat(document.getElementById("t1").value);
+            let y = parseFloat(document.getElementById("t2").value);
+
+            if (y === 0) {
+                alert("Cannot divide by zero!");
+                return;
+            }
+            document.getElementById("t3").value = x / y;
+        }
+
+        function sub() {
+            let x = parseFloat(document.getElementById("t1").value);
+            let y = parseFloat(document.getElementById("t2").value);
+            document.getElementById("t3").value = x - y;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="calc-container">
+        
+        <h2>Basic Calculator</h2>
+
+        <label>First Number:</label>
+        <input type="number" id="t1"><br><br>
+
+        <label>Second Number:</label>
+        <input type="number" id="t2"><br><br>
+
+        <label>Result:</label>
+        <input type="number" id="t3" readonly><br><br>
+
+        <div class="btn-grid">
+            <button onclick="add()">ADD</button>
+            <button onclick="multiply()">MULTIPLY</button>
+            <button onclick="divide()">DIVIDE</button>
+            <button onclick="sub()">SUBTRACT</button>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Example</title>
+
+    <script>
+        let changed = false;
+
+        function demo(){
+            let img = document.getElementById("im");
+
+            if(!changed){
+                img.src = "bus.png";
+                changed = true;
+            } else {
+                img.src = "bus.jpg";
+                changed = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Change Image on Button Click</h2>
+
+   
+    <img id="im" 
+         src="bus.jpg" 
+         alt="Image" width="300" />
+
+    <br><br>
+
+    <button onclick="demo()">Change Image</button>
+
+</body>
+</html>
