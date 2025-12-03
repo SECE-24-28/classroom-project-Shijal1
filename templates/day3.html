@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramayana</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Background Video */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(60%);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(3px);
+        }
+
+        nav h1 {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ol {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav li {
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav li:hover {
+            color: #ffd700;
+        }
+
+        /* Bottom Center Explanation */
+        .details-section {
+            width: 100%;
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        details {
+            width: 80%;
+            max-width: 750px;
+            text-align: center;
+        }
+
+        details summary {
+            font-size: 22px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(7px);
+            padding: 15px 25px;
+            border-radius: 12px;
+            color: #ffd700;
+            font-weight: bold;
+            box-shadow: 0 0 12px rgba(0,0,0,0.4);
+            list-style: none;
+        }
+
+        details summary:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        details[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .details-box {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            border-radius: 0 0 12px 12px;
+            color: white;
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .details-box h2 {
+            color: #ffd700;
+            margin-bottom: 12px;
+            font-size: 26px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="ramyana.mp4" type="video/mp4">
+    </video>
+
+    <!-- Navigation -->
+    <nav>
+        <h1>रामायण</h1>
+        <ol>
+            <li>मुख्यपृष्ठ</li>
+            <li>इतिहास</li>
+            <li>चरित्रहरू</li>
+        </ol>
+    </nav>
+
+    <!-- Bottom Center Explanation -->
+    <section class="details-section">
+        <details>
+            <summary>राम–रावण युद्धको सत्य विवरण हेर्नुहोस्</summary>
+            <div class="details-box">
+                <h2>रामायणको गहन सार</h2>
+                <p>
+                    रामायण केवल धार्मिक ग्रन्थ होइन—यो सत्य, धर्म, त्याग र कर्तव्यको अनन्त प्रकाश हो।
+                    श्रीरामको जीवन आदर्श चरित्रको प्रतिमूर्ति हो, जसले मानवजातिलाई धैर्य, नैतिकता र सत्यतर्फ डोर्याउँछ।<br><br>
+
+                    रावण शक्तिशाली, विद्वान् र तपस्वी थिए—तर अहंकारले उहाँलाई अधर्मतर्फ डोर्यायो।
+                    यही कारणले राम र रावणबीचको युद्ध केवल युद्ध थिएन—यो धर्म र अधर्मबीचको दिव्य टकराव थियो।<br><br>
+
+                    विजय अन्ततः सत्यकै हुन्छ—रामायण यही सनातन सत्यको प्रमाण हो।
+                </p>
+            </div>
+        </details>
+    </section>
+
+</body>
+</html>
