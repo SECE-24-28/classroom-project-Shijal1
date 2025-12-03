@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUS.FOR.U - Login</title>
+ <link rel="icon" type="image/png" href="bus.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: white;
+            padding: 25px 35px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .input-row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #999;
+            width: 250px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fcc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>BUS.FOR.U</h1>
+
+    <div class="login-container">
+        <div class="input-row">
+            <label>Username</label>
+            <input type="text" placeholder="Enter Username">
+        </div>
+
+        <div class="input-row">
+            <label>Password</label>
+            <input type="password" placeholder="Enter Password">
+        </div>
+
+        <button>Login</button>
+    </div>
+
+</body>
+</html>
