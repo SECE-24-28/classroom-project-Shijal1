@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document1</title>
+
+    <script>
+        function press() {
+            let body = document.getElementById("main");
+            let head = document.getElementById("hd");
+            alert("Deletion Successful");
+            body.removeChild(head);
+        }
+    </script>
+
+</head>
+
+<body id="main">
+    <h1 id="hd"> Heading Tag </h1>
+    <button id="btn" onclick="press()">Click Me</button> 
+</body>
+</html>
