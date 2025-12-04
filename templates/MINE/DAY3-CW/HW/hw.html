@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: #1c1e21;
+        }
+        
+        /* Header Styles */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            height: 56px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: #1877f2;
+            font-size: 40px;
+            margin-right: 8px;
+        }
+        
+        .logo span {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1877f2;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #f0f2f5;
+            border-radius: 50px;
+            padding: 8px 12px;
+            width: 240px;
+        }
+        
+        .search-bar i {
+            color: #65676b;
+            margin-right: 8px;
+        }
+        
+        .search-bar input {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            width: 100%;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e4e6eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .nav-icon i {
+            color: #1c1e21;
+            font-size: 20px;
+        }
+        
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Main Container */
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 16px;
+            gap: 20px;
+        }
+        
+        /* Left Sidebar */
+        .left-sidebar {
+            flex: 0 0 280px;
+        }
+        
+        .sidebar-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 16px 0;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 0 8px;
+            transition: background-color 0.2s;
+        }
+        
+        .sidebar-item:hover {
+            background-color: #f0f2f5;
+        }
+        
+        .sidebar-item i {
+            font-size: 24px;
+            margin-right: 12px;
+            color: #1877f2;
+            width: 32px;
+            text-align: center;
+        }
+        
+        .sidebar-item span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        /* Stories Section */
+        .stories-section {
+            flex: 1;
+            max-width: 680px;
+        }
+        
+        .stories-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stories-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .stories-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .see-all {
+            color: #1877f2;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .stories {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+        
+        .story {
+            flex: 0 0 auto;
+            width: 120px;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .story-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .story:hover .story-bg {
+            transform: scale(1.05);
+        }
+        
+        .story-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+        }
+        
+        .story-profile {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 4px solid #1877f2;
+            overflow: hidden;
+        }
+        
+        .story-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .story-author {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .create-story {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            background-color: #f0f2f5;
+        }
+        
+        .create-story-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .create-story-icon i {
+            color: white;
+            font-size: 20px;
+        }
+        
+        .create-story span {
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #1c1e21;
+        }
+        
+        /* Posts Section */
+        .post-create {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .post-create-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .post-profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 12px;
+        }
+        
+        .post-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .post-input {
+            flex: 1;
+            background-color: #f0f2f5;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .post-create-divider {
+            height: 1px;
+            background-color: #e4e6eb;
+            margin: 16px 0;
+        }
+        
+        .post-options {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .post-option {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .post-option:hover {
+            background-color: #f0f2f5;
+        }
+        
+        .post-option i {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+        
+        .live-video i {
+            color: #f3425f;
+        }
+        
+        .photo-video i {
+            color: #45bd62;
+        }
+        
+        .feeling i {
+            color: #f7b928;
+        }
+        
+        /* Posts Feed */
+        .posts-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .post {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+        }
+        
+        .post-author-info {
+            flex: 1;
+        }
+        
+        .post-author {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        
+        .post-time {
+            color: #65676b;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-time i {
+            margin-left: 4px;
+            font-size: 12px;
+        }
+        
+        .post-menu {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .post-menu:hover {
+            background-color: #f0f2f5;
+        }
+        
+        .post-content {
+            padding: 0 16px 12px;
+        }
+        
+        .post-text {
+            font-size: 15px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        
+        .post-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .post-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border-bottom: 1px solid #e4e6eb;
+        }
+        
+        .post-reactions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-reactions img {
+            width: 18px;
+            height: 18px;
+            margin-right: 4px;
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+        }
+        
+        .post-action {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .post-action:hover {
+            background-color: #f0f2f5;
+        }
+        
+        .post-action i {
+            font-size: 18px;
+            margin-right: 8px;
+            color: #65676b;
+        }
+        
+        .post-action span {
+            font-weight: 600;
+            color: #65676b;
+        }
+        
+        .like-action:hover i, .like-action:hover span {
+            color: #1877f2;
+        }
+        
+        .comment-action:hover i, .comment-action:hover span {
+            color: #45bd62;
+        }
+        
+        .share-action:hover i, .share-action:hover span {
+            color: #f7b928;
+        }
+        
+        /* Right Sidebar */
+        .right-sidebar {
+            flex: 0 0 280px;
+        }
+        
+        .contacts-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .contacts-header h2 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #65676b;
+        }
+        
+        .contacts-icons i {
+            font-size: 16px;
+            margin-left: 12px;
+            color: #65676b;
+            cursor: pointer;
+        }
+        
+        .contact {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .contact:hover {
+            background-color: #f0f2f5;
+        }
+        
+        .contact-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 12px;
+            position: relative;
+        }
+        
+        .contact-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .online-indicator {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #31a24c;
+            border: 2px solid #ffffff;
+        }
+        
+        .contact-name {
+            font-weight: 500;
+            font-size: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .right-sidebar {
+                display: none;
+            }
+            
+            .left-sidebar {
+                flex: 0 0 80px;
+            }
+            
+            .sidebar-item span {
+                display: none;
+            }
+            
+            .sidebar-item i {
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 12px;
+            }
+            
+            .search-bar {
+                display: none;
+            }
+            
+            .main-container {
+                padding: 0 12px;
+            }
+            
+            .left-sidebar {
+                display: none;
+            }
+        }
+        
+        /* Scrollbar Styling */
+        .stories::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .stories::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .stories::-webkit-scrollbar-thumb {
+            background: #bcc0c4;
+            border-radius: 10px;
+        }
+        
+        .stories::-webkit-scrollbar-thumb:hover {
+            background: #8a8d91;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fab fa-facebook"></i>
+                <span>facebook</span>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Facebook">
+            </div>
+            
+            <div class="nav-icons">
+                <div class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-icon">
+                    <i class="fab fa-facebook-messenger"></i>
+                </div>
+                <div class="nav-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="profile-icon">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Friends</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <span>Messenger</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-flag"></i>
+                    <span>Pages</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-users"></i>
+                    <span>Groups</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-store"></i>
+                    <span>Marketplace</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-video"></i>
+                    <span>Watch</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Events</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content (Stories & Posts) -->
+        <div class="stories-section">
+            <!-- Stories -->
+            <div class="stories-container">
+                <div class="stories-header">
+                    <h2>Stories</h2>
+                    <div class="see-all">See All</div>
+                </div>
+                <div class="stories">
+                    <!-- Create Story -->
+                    <div class="story create-story">
+                        <div class="create-story-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <span>Create Story</span>
+                    </div>
+                    
+                    <!-- Story 1 -->
+                    <div class="story">
+                        <img class="story-bg" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Mountain View">
+                        <div class="story-overlay"></div>
+                        <div class="story-profile">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Garcia">
+                        </div>
+                        <div class="story-author">Maria Garcia</div>
+                    </div>
+                    
+                    <!-- Story 2 -->
+                    <div class="story">
+                        <img class="story-bg" src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Night Sky">
+                        <div class="story-overlay"></div>
+                        <div class="story-profile">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="James Wilson">
+                        </div>
+                        <div class="story-author">James Wilson</div>
+                    </div>
+                    
+                    <!-- Story 3 -->
+                    <div class="story">
+                        <img class="story-bg" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Lake View">
+                        <div class="story-overlay"></div>
+                        <div class="story-profile">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="story-author">Sarah Johnson</div>
+                    </div>
+                    
+                    <!-- Story 4 -->
+                    <div class="story">
+                        <img class="story-bg" src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Forest">
+                        <div class="story-overlay"></div>
+                        <div class="story-profile">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Robert Chen">
+                        </div>
+                        <div class="story-author">Robert Chen</div>
+                    </div>
+                    
+                    <!-- Story 5 -->
+                    <div class="story">
+                        <img class="story-bg" src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07" alt="Forest Path">
+                        <div class="story-overlay"></div>
+                        <div class="story-profile">
+                            <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Emma Davis">
+                        </div>
+                        <div class="story-author">Emma Davis</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Create Post -->
+            <div class="post-create">
+                <div class="post-create-top">
+                    <div class="post-profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Your Profile">
+                    </div>
+                    <input type="text" class="post-input" placeholder="What's on your mind, John?">
+                </div>
+                
+                <div class="post-create-divider"></div>
+                
+                <div class="post-options">
+                    <div class="post-option live-video">
+                        <i class="fas fa-video"></i>
+                        <span>Live video</span>
+                    </div>
+                    <div class="post-option photo-video">
+                        <i class="fas fa-photo-video"></i>
+                        <span>Photo/video</span>
+                    </div>
+                    <div class="post-option feeling">
+                        <i class="far fa-smile"></i>
+                        <span>Feeling/activity</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Posts Feed -->
+            <div class="posts-feed">
+                <!-- Post 1 -->
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Garcia">
+                        </div>
+                        <div class="post-author-info">
+                            <div class="post-author">Maria Garcia</div>
+                            <div class="post-time">2 hours ago <i class="fas fa-globe-americas"></i></div>
+                        </div>
+                        <div class="post-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="post-content">
+                        <div class="post-text">
+                            Just returned from an amazing hiking trip in the mountains! The views were absolutely breathtaking. Nature truly is the best therapy. 🌲⛰️
+                        </div>
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Mountain View">
+                        </div>
+                    </div>
+                    
+                    <div class="post-stats">
+                        <div class="post-reactions">
+                            <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t6c/1/16/1f44d.png" alt="Like">
+                            <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t6b/1/16/2764.png" alt="Love">
+                            <span>245</span>
+                        </div>
+                        <div class="post-comments">48 comments</div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <div class="post-action like-action">
+                            <i class="far fa-thumbs-up"></i>
+                            <span>Like</span>
+                        </div>
+                        <div class="post-action comment-action">
+                            <i class="far fa-comment-alt"></i>
+                            <span>Comment</span>
+                        </div>
+                        <div class="post-action share-action">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post 2 -->
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="James Wilson">
+                        </div>
+                        <div class="post-author-info">
+                            <div class="post-author">James Wilson</div>
+                            <div class="post-time">Yesterday at 8:15 PM <i class="fas fa-user-friends"></i></div>
+                        </div>
+                        <div class="post-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="post-content">
+                        <div class="post-text">
+                            Celebrated my 5th work anniversary today! Grateful for an amazing team and the opportunities I've had. Here's to many more years of growth and success! 🎉
+                        </div>
+                    </div>
+                    
+                    <div class="post-stats">
+                        <div class="post-reactions">
+                            <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t6c/1/16/1f44d.png" alt="Like">
+                            <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t6b/1/16/2764.png" alt="Love">
+                            <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t73/1/16/1f606.png" alt="Haha">
+                            <span>189</span>
+                        </div>
+                        <div class="post-comments">32 comments</div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <div class="post-action like-action">
+                            <i class="far fa-thumbs-up"></i>
+                            <span>Like</span>
+                        </div>
+                        <div class="post-action comment-action">
+                            <i class="far fa-comment-alt"></i>
+                            <span>Comment</span>
+                        </div>
+                        <div class="post-action share-action">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Post 3 -->
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="post-author-info">
+                            <div class="post-author">Sarah Johnson</div>
+                            <div class="post-time">2 days ago <i class="fas fa-globe-americas"></i></div>
+                        </div>
+                        <div class="post-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="post-content">
+                        <div class="post-text">
+                            Just finished reading an incredible book! "The Midnight Library" by Matt Haig. It's a thought-provoking exploration of life choices and regrets. Highly recommend it to everyone!
+                        </div>
+                        <div class="post-image">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c" alt="Books">
+                        </div>
+                    </div>
+                    
+                    <div class="post-stats">
+                        <div class="post-reactions">
+                            <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t6c/1/16/1f44d.png" alt="Like">
+                            <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t6b/1/16/2764.png" alt="Love">
+                            <span>127</span>
+                        </div>
+                        <div class="post-comments">29 comments</div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <div class="post-action like-action">
+                            <i class="far fa-thumbs-up"></i>
+                            <span>Like</span>
+                        </div>
+                        <div class="post-action comment-action">
+                            <i class="far fa-comment-alt"></i>
+                            <span>Comment</span>
+                        </div>
+                        <div class="post-action share-action">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="sidebar-card">
+                <div class="contacts-header">
+                    <h2>Contacts</h2>
+                    <div class="contacts-icons">
+                        <i class="fas fa-video"></i>
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Robert Chen">
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="contact-name">Robert Chen</div>
+                </div>
+                
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Emma Davis">
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="contact-name">Emma Davis</div>
+                </div>
+                
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Michael Brown">
+                    </div>
+                    <div class="contact-name">Michael Brown</div>
+                </div>
+                
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Lisa Wang">
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="contact-name">Lisa Wang</div>
+                </div>
+                
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David Miller">
+                    </div>
+                    <div class="contact-name">David Miller</div>
+                </div>
+                
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Sophia Lee">
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="contact-name">Sophia Lee</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Like button functionality
+            const likeButtons = document.querySelectorAll('.like-action');
+            
+            likeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const likeIcon = this.querySelector('i');
+                    const likeText = this.querySelector('span');
+                    
+                    if (likeIcon.classList.contains('far')) {
+                        likeIcon.classList.remove('far');
+                        likeIcon.classList.add('fas');
+                        likeText.textContent = 'Liked';
+                        likeText.style.color = '#1877f2';
+                        likeIcon.style.color = '#1877f2';
+                    } else {
+                        likeIcon.classList.remove('fas');
+                        likeIcon.classList.add('far');
+                        likeText.textContent = 'Like';
+                        likeText.style.color = '#65676b';
+                        likeIcon.style.color = '#65676b';
+                    }
+                });
+            });
+            
+            // Story click effect
+            const stories = document.querySelectorAll('.story');
+            
+            stories.forEach(story => {
+                story.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+            
+            // Post input focus
+            const postInput = document.querySelector('.post-input');
+            
+            postInput.addEventListener('click', function() {
+                alert('Post creation functionality would open here in a real Facebook clone.');
+            });
+        });
+    </script>
+</body>
+</html>
