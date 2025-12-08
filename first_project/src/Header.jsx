@@ -5,10 +5,10 @@ const Header = () => {
     return (
         <div>
             <h1 style={des}>RANDOM JACCKASSS</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, accusantium? Assumenda, officiis eligendi eius magnam debitis sed quos nostrum sunt ipsum, placeat iste, provident voluptatum esse sequi. In, laboriosam ratione?</p>
+            <p>Lorem ipsum dolor sit amet cons ectetur adipisicing elit. Molestiae, accusantium? Assumenda, officiis eligendi eius magnam debitis sed quos nostrum sunt ipsum, placeat iste, provident voluptatum esse sequi. In, laboriosam ratione?</p>
 
         </div>
     )
 }
-
+     
 export default Header
