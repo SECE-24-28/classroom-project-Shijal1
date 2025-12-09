@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+    <style>
+        .gallery {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 150px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        #preview {
+            width: 400px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h2>Image Gallery</h2>
+
+<div class="gallery">
+    <img src="https://picsum.photos/200?1">
+    <img src="https://picsum.photos/200?2">
+    <img src="https://picsum.photos/200?3">
+    <img src="https://picsum.photos/200?4">
+</div>
+
+<img id="preview">
+
+<script>
+    const imgs = document.querySelectorAll(".gallery img");
+    const preview = document.getElementById("preview");
+
+    imgs.forEach(img => {
+        img.addEventListener("click", () => {
+            preview.src = img.src;
+            preview.style.display = "block";
+        });
+    });
+</script>
+</body>
+</html>
