@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -36,7 +36,20 @@ function App()
     addItem(newstu)
     setNewStu('')
    }
-    const [newstu,setNewStu]=useState('')
+    // const [newstu,setNewStu]=useState('')
+
+    useEffect(()=>
+    {
+      const tem_list=[
+        {id:1,name:"shijal",fee:"true"},
+        {id:2,name:"sujesh",fee:"false"},
+        {id:3,name:"shisir",fee:"true"}
+      ]
+      setStuList(tem_list)
+    },[]
+  )
+  const [newstu,setNewStu]=useState('')
+  const [search,setSearch]=useState('')
   return (
     <>
        <h1>Students List</h1>
