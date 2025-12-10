@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+
+    <script>
+        let photos = [
+            "Coffee.png",
+            "bus.png",
+            
+        ];
+
+        let index = 0;
+
+        function showImage() {
+            document.getElementById("im").src = photos[index];
+        }
+
+        function nextImage() {
+            index++;
+            if (index >= photos.length) {
+                index = 0;
+            }
+            showImage();
+        }
+
+        function previousImage() {
+            index--;
+            if (index < 0) {
+                index = photos.length - 1;
+            }
+            showImage();
+        }
+    </script>
+
+</head>
+
+<body onload="showImage()">
+
+    <img id="im" src="" width="30%" height="30%" alt="Slider Image">
+    <br><br>
+
+    <button onclick="previousImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+</body>
+</html>
