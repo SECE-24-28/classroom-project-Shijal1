@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPT</title>
+  <style>
+    * { 
+        margin: 0; 
+        padding: 0;
+         box-sizing: 
+         border-box; 
+         font-family: Arial, sans-serif; 
+    }
+    body {
+         background: #f1f3f5; 
+         height: 100vh; 
+         display: flex; 
+        }
+
+    .sidebar {
+      width: 260px;
+      background: #ffffff;
+      border-right: 1px solid #d7d7d7;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .new-chat {
+      padding: 12px;
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .history-title { 
+        font-size: 13px;
+         color: #6b7280; 
+        }
+
+    .chat-item {
+      padding: 10px;
+      background: #fafafa;
+      border-radius: 6px;
+      border: 1px solid #e5e5e5;
+      margin-top: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #f8fafc;
+    }
+    .topbar {
+      padding: 16px;
+      border-bottom: 1px solid #d7d7d7;
+      background: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .chat-area {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .msg {
+      padding: 16px;
+      border-radius: 14px;
+      max-width: 750px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .bot {
+      background: white;
+      border: 1px solid #e5e5e5;
+      align-self: flex-start;
+    }
+
+    .user {
+      background: #d1e8ff;
+      align-self: flex-end;
+    }
+
+    .input-box {
+      padding: 20px;
+      background: #ffffff;
+      border-top: 1px solid #d7d7d7;
+      display: flex;
+      justify-content: center;
+    }
+
+    .input-field {
+      width: 90%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #c3c3c3;
+      background: #fafafa;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="new-chat">+ New Chat</div>
+
+    <div>
+      <div class="history-title">Recent</div>
+      <div class="chat-item">Sample Chat 1</div>
+      <div class="chat-item">Sample Chat 2</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">ChatGPT</div>
+
+    <div class="chat-area">
+      <div class="msg bot">Hello! How can I assist you today?</div>
+      <div class="msg user">Show me a ChatGPT UI template.</div>
+      <div class="msg bot">Here is the static HTML/CSS layout!</div>
+    </div>
+
+    <div class="input-box">
+      <input class="input-field" type="text" placeholder="Message ChatGPT..." />
+    </div>
+  </div>
+
+</body>
+</html>
