@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import api from './api/Post'
 import Home from './Home'
-
+import Search from './Search'
 function App() {
   const [posts, setPosts] = useState([])
   const [search, setSearch] = useState("")
@@ -29,8 +29,7 @@ function App() {
 
   return (
     <>
-      <input type="text" value={search}
-                         onChange={(e)=>setSearch(e.target.value)} />
+      <Search search={search} setSearch={setSearch}/>
       <Home searchResult={searchResult} />
     </>
   )
