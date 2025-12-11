@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'       
-
 import './App.css'
 import api from './api/Post'
+import Home from './Home'
 
 function App() {
   const [posts, setPosts] = useState([])
+  const [search, setSearch] = useState("")
+  const [searchResult, setSearchResult] = useState([])
 
+// fetch the data
+// load the data
   useEffect(()=>
   {
     const fetData=async()=>
@@ -16,19 +20,20 @@ function App() {
     fetData();
   },[])
 
+  //search
+  useEffect(()=>
+  {
+    const filtered = posts.filter((post)=>(post.title).includes(search))
+    setSearchResult(filtered)
+  },[posts, search])
+
   return (
     <>
-      {
-        posts.map((post)=>
-        <div key={post.id}>
-          <h1>{post.title}</h1>
-          <p>{post.datetime}</p>
-          <p>{post.body}</p>
-          <hr />
-        </div> )
-      }
+      <input type="text" value={search}
+                         onChange={(e)=>setSearch(e.target.value)} />
+      <Home searchResult={searchResult} />
     </>
   )
 }
 
-export default App
+export default App
