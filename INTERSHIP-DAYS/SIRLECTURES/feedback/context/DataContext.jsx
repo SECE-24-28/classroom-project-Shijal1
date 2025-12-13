@@ -1,55 +1,65 @@
-import { createContext,useState } from "react";
-import {format} from "date-fns";
-import api from '../api/Post'
-const DataContext=createContext()
-export const DataProvider=({children})=>{
-    const[num,setNum]=useState(100)
-    const [posts, setPosts] = useState([])
-  const [search, setSearch] = useState("")
-  const [searchResult, setSearchResult] = useState([])
-  const [title, setTitle] = useState("")
-  const [body, setBody] = useState("")
+// import { useContext, useEffect, useState } from 'react'
+// import './App.css'
+// import api from './api/Post'
+// import Home from './Home'
+// import Search from './Search'
+// import AddPost from './AddPost'
+// import EditPost from './EditPost'
+// import { format } from 'date-fns'
+// import DataContext, { DataProvider } from './context/DataContext'
+// import { Link } from 'react-router-dom'
+// import { Routes } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
+// function App() {
 
-  // Fetch initial data
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await api.get("/feedback")
-      setPosts(res.data)
-    }
-    fetchData()
-  }, [])
 
-  // Search filter
-  useEffect(() => {
-    const filtered = posts.filter(post =>
-      post.title.toLowerCase().includes(search.toLowerCase())
-    )
-    setSearchResult(filtered)
-  }, [posts, search])
+//   return (
+//     <>
+//     <ol>
+//       <li><Link to="/">Home</Link></li>
+//       <li><Link to="/newpost">NewPost</Link></li>
+//     </ol>
 
-  // Form submit
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+//     <DataProvider>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/newpost" element={<AddPost />} />
+//           <Route path="/editpost/:id" element={<EditPost />} />
+//         </Routes>
+//     </DataProvider>
+//      </>
+     
+//   )
+// }
 
-    const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1
-    const datetime = format(new Date(), "MMM dd, yyyy pp")
+// export default App
+import './App.css'
+import Home from './Home'
+import Search from './Search'
+import AddPost from './AddPost'
+import EditPost from './EditPost'
 
-    const newObj = { id, title, datetime, body }
+import { Link, Route, Routes } from 'react-router-dom'
+import { DataProvider } from './context/DataContext'
 
-    await api.post("/feedback", newObj)
+function App() {
 
-    const newList = [...posts, newObj]
-    setPosts(newList)
+  return (
+    <DataProvider>
 
-    setTitle("")
-    setBody("")
-  }
+      <ol>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/newpost">NewPost</Link></li>
+      </ol>
 
-    return(
-        <DataContext.Provider value={(num,setNum)}>
-        {children}
-        </DataContext.Provider>
-    )
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/newpost" element={<AddPost />} />
+        <Route path="/editpost/:id" element={<EditPost/>}/>
+      </Routes>
+
+    </DataProvider>
+  )
 }
 
-export default DataContext
+export default App
